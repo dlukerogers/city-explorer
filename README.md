@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Luke Rogers
-**Version**: 1.0.1
+**Version**: 1.0.2
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
@@ -19,3 +19,45 @@
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+## Time Estimates
+
+Name of feature: Set up your React repository & API keys.
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 2:59 pm
+
+Finish time: 3:23 pm
+
+Actual time needed to complete: 24 minutes
+
+Name of feature: Locations
+
+Estimate of time needed to complete: 2 hours
+
+Start time: Friday 3:23 pm
+
+Finish time: Saturday 9:14 pm
+
+Actual time needed to complete: 3 hours
+
+Name of feature: Map
+
+Estimate of time needed to complete: 1 hour
+
+Start time:
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+Name of feature: Errors
+
+Estimate of time needed to complete: 1 hour
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
