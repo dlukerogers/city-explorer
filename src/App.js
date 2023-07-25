@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'; // axios is an object that has several methods
 import Table from 'react-bootstrap/Table';
 import Image from 'react-bootstrap/Image';
-// import Alert from 'react-bootstrap/Alert';
+import Alert from 'react-bootstrap/Alert';
 import './App.css'
 
 class App extends React.Component {
@@ -11,20 +11,30 @@ class App extends React.Component {
     this.state = {
       cityName: '',
       cityData: {},
-      
+      error: false,
+      errorMessage: '',
     }
   }
 
   handleLocationSubmit = async (e) => {
     e.preventDefault();
 
-    let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`;
+    try {
+      let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`;
       
-    let cityData = await axios.get(url);
+      let cityData = await axios.get(url);
       
       this.setState({
         cityData: cityData.data[0]
       });
+    } catch(error) {
+      console.log('error: ', error);
+      console.log('error.message: ', error.message)
+      this.setState({
+        error: true,
+        errorMessage: `An Error Occured: ${error.response.status}`
+      });
+    }
   }
   
   changeCityInput = (e) => {
@@ -70,8 +80,11 @@ class App extends React.Component {
             </label>
             <button type="submit">Explore!</button>
           </form>
-          
-          <div id="cityDataDiv">{cityDisplayedData}</div>
+          {
+            this.state.error
+              ? <Alert variant="danger">{this.state.errorMessage}</Alert>
+              : <div id="cityDataDiv">{cityDisplayedData}</div>
+          }
       </main>
     )
   }
