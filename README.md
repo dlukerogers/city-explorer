@@ -1,24 +1,31 @@
 # City Explorer
 
 **Author**: Luke Rogers
-**Version**: 1.0.3
+**Version**: 1.0.5
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+This app gives a user the ability to type in any city within the United States. A map of the city and its coordinates are returned to the user.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+The user must create a React app, connect the app to the City Explorer API, and format the page with a form, that once clicked on, grabs a table of information and an image from the API. The user should also create an error message that displays when an error occurs.
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+Techonologies: React, JavaScript, CSS, Bootstrap, Axios.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+7/21/2023 [Version 1.0.1] - Set up React Repository and API keys
+7/21/2023 [Version 1.0.2] - Setting up React Repo and API keys (part 2)
+7/22/2023 [Version 1.0.3] - Created locations feature
+7/25/2023 [Version 1.0.4] - Created Map feature
+7/25/2023 [Version 1.0.5] - Created Error feature
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+Adnan Mohamud
 
 ## Time Estimates
 
@@ -56,8 +63,8 @@ Name of feature: Errors
 
 Estimate of time needed to complete: 1 hour
 
-Start time: _____
+Start time: 12:38pm
 
-Finish time: _____
+Finish time: 1:38pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hour
