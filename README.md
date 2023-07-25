@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Luke Rogers
-**Version**: 1.0.2
+**Version**: 1.0.3
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
@@ -46,11 +46,11 @@ Name of feature: Map
 
 Estimate of time needed to complete: 1 hour
 
-Start time:
+Start time: 9:54 pm
 
-Finish time: _____
+Finish time: 11:27 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hour 33 minutes
 
 Name of feature: Errors
 

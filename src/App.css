@@ -1,38 +1,41 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora&display=swap');
+
+body {
+  background-color: gray;
+}
+
+h1 {
   text-align: center;
+  padding: 3rem;
+  font-family: 'Lora', serif;
+  background-color: black;
+  color: whitesmoke
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+main {
+  width: 85%;
+  margin: auto;
+  background-color: gray;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+form {
+  text-align: center;
+  background-color: yellow;
+  padding: 2rem;
+  margin-bottom: .5rem;
+  font-family: 'Lato', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input {
+  margin-left: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+#cityDataDiv {
+  text-align: center;
+  background-color: black;
+  padding: 2rem;
+  font-family: 'Lato', sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* ask TA how to not display table and Image before Explore button is clicked */
+/* ask TA about 400 error */
