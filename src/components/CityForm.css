@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora&display=swap');
+
+form {
+  text-align: center;
+  background-color: yellow;
+  padding: 2rem;
+  margin-bottom: .5rem;
+  font-family: 'Lato', sans-serif;
+}
+
+input {
+  margin-left: 1rem;
+}

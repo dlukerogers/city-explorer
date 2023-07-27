@@ -1,9 +1,11 @@
 import React from 'react';
 import axios from 'axios'; // axios is an object that has several methods
-import Table from 'react-bootstrap/Table';
-import Image from 'react-bootstrap/Image';
-import Alert from 'react-bootstrap/Alert';
+import CityTable from './components/CityTable';
+import Map from './components/Map';
+import Error from './components/Error'
+import CityForm from './components/CityForm';
 import './App.css'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -11,6 +13,9 @@ class App extends React.Component {
     this.state = {
       cityName: '',
       cityData: {},
+      lat: '',
+      lon: '',
+      cityDisplayName: '',
       error: false,
       errorMessage: '',
     }
@@ -18,73 +23,73 @@ class App extends React.Component {
 
   handleLocationSubmit = async (e) => {
     e.preventDefault();
-
+    
     try {
       let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`;
       
       let cityData = await axios.get(url);
-      
+      let lat = cityData.data[0].lat;
+      let lon = cityData.data[0].lon;
       this.setState({
-        cityData: cityData.data[0]
-      });
-    } catch(error) {
-      console.log('error: ', error);
-      console.log('error.message: ', error.message)
+        lat: lat,
+        lon: lon
+      })
+      let cityDisplayName = cityData.data[0].display_name;
       this.setState({
-        error: true,
-        errorMessage: `An Error Occured: ${error.response.status}`
-      });
+        cityDisplayName: cityDisplayName
+      })
+      this.setState(
+        { cityData: cityData.data[0] },
+        );
+      } catch(error) {
+        console.log('error: ', error);
+        console.log('error.message: ', error.message)
+        this.setState({
+          error: true,
+          errorMessage: `An Error Occured: ${error.response.status}`
+        });
+      }
     }
-  }
   
+    
   changeCityInput = (e) => {
     this.setState({
       cityName: e.target.value
     });
   }
-  
-  render() {
-    let cityDataArr = [this.state.cityData]
-    let cityDisplayedData = cityDataArr.map((city, index) => {
-      let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${city.lat},${city.lon}&zoom=12`
-      return (
-        <div key={index}>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>City</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{city.display_name}</td>
-                <td>{city.lat}</td>
-                <td>{city.lon}</td>
-              </tr>
-            </tbody>
-          </Table>
-          <Image id='mapImg' src={mapURL} alt={city.display_name} rounded />
-        </div>
-      )
-      })
-
-
+    
+  render() {    
     return (
       <main>
         <h1>City Explorer</h1>
-          <form onSubmit={this.handleLocationSubmit}>
-            <label>Search for a City:
-              <input name="city" onChange={this.changeCityInput}/>
-            </label>
-            <button type="submit">Explore!</button>
-          </form>
-          {
-            this.state.error
-              ? <Alert variant="danger">{this.state.errorMessage}</Alert>
-              : <div id="cityDataDiv">{cityDisplayedData}</div>
-          }
+        <CityForm 
+          handleLocationSubmit={this.handleLocationSubmit}
+          changeCityInput={this.changeCityInput}
+        />
+        {
+          this.state.error
+            ? <Error 
+                errorMessage={this.state.errorMessage}
+              />
+            : console.log('no error')
+        }
+        {this.state.cityData ? 
+          <div id="cityDataDiv">
+            <CityTable 
+              lat={this.state.lat}
+              lon={this.state.lon}
+              cityDisplayName={this.state.cityDisplayName}
+            />
+            <Map
+              lat={this.state.lat}
+              lon={this.state.lon}
+              cityDisplayName={this.state.cityDisplayName}
+            />
+          </div>
+          : <div>City not found</div>
+        }
+
+      
       </main>
     )
   }
