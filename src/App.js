@@ -89,7 +89,6 @@ class App extends React.Component {
           : <div>City not found</div>
         }
 
-      
       </main>
     )
   }
