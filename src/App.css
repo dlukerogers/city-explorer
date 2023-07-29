@@ -18,24 +18,9 @@ main {
   background-color: gray;
 }
 
-form {
-  text-align: center;
-  background-color: yellow;
-  padding: 2rem;
-  margin-bottom: .5rem;
-  font-family: 'Lato', sans-serif;
-}
-
-input {
-  margin-left: 1rem;
-}
-
 #cityDataDiv {
   text-align: center;
   background-color: black;
   padding: 2rem;
   font-family: 'Lato', sans-serif;
 }
-
-/* ask TA how to not display table and Image before Explore button is clicked */
-/* ask TA about 400 error */
