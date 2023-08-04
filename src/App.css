@@ -24,3 +24,7 @@ main {
   padding: 2rem;
   font-family: 'Lato', sans-serif;
 }
+
+#weatherError {
+  margin-top: 2rem;
+}

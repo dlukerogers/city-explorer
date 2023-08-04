@@ -1,0 +1,11 @@
+#forecastHeader {
+  color: yellow;
+  margin-top: 2rem;
+}
+
+#weatherCard {
+  margin: auto;
+  margin-bottom: 1rem;
+  background-color: lightgray;
+  max-width: 20rem;
+}
