@@ -8,4 +8,7 @@
   margin-bottom: 1rem;
   background-color: lightgray;
   max-width: 20rem;
+  display: inline-block;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
