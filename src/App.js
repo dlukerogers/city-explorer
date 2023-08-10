@@ -5,6 +5,7 @@ import Map from './components/Map';
 import Error from './components/Error'
 import CityForm from './components/CityForm';
 import Weather from './components/Weather';
+import Movie from "./components/Movie";
 import Alert from 'react-bootstrap/Alert'
 import './App.css'
 
@@ -21,7 +22,9 @@ class App extends React.Component {
       error: false,
       errorMessage: '',
       weather: [],
-      weatherError: ''
+      weatherError: '',
+      movies: [],
+      movieError: '',
     }
   }
 
@@ -43,8 +46,8 @@ class App extends React.Component {
         cityData: cityData.data[0] 
       }, 
       () => {
-        this.displayWeather(this.state.lat, this.state.lon)
-
+        this.displayWeather(this.state.lat, this.state.lon);
+        this.displayMovies(this.state.cityDisplayName);
       }
       )
       
@@ -69,6 +72,19 @@ class App extends React.Component {
         this.setState({weatherError: error.response.data});
       }
     };
+    
+    displayMovies = async (cityDisplayName) => {
+      let cityName = cityDisplayName.split(",")[0];
+      let movieData = `${process.env.REACT_APP_SERVER_URL}/movies?location=${cityName}`;
+      try {
+        let movies = await axios.get(movieData);
+        this.setState({movies: movies.data});
+        console.log(movies);
+      } catch (error) {
+        console.log (`There is an error finding the movies for the searched city: ${error.message}`);
+        this.setState({movieError: error.response.data});
+      }
+    }
   
     
   changeCityInput = (e) => {
@@ -110,6 +126,12 @@ class App extends React.Component {
                   <Alert id="weatherError" variant="danger">{this.state.weatherError}</Alert>
                 )
                   : <Weather weatherData={this.state.weather} />
+              }
+              {
+                this.state.movieError ? (
+                  <Alert id="movieError" variant="danger">{this.state.movieError}</Alert>
+                )
+                  : <Movie movieData={this.state.movies} />
               }
             </div>
           ) : (<div>Please enter a valid city name</div>)
