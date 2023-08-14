@@ -5,7 +5,7 @@ import Map from './components/Map';
 import Error from './components/Error'
 import CityForm from './components/CityForm';
 import Weather from './components/Weather';
-import Movie from "./components/Movie";
+import MovieList from "./components/MovieList";
 import Alert from 'react-bootstrap/Alert'
 import './App.css'
 
@@ -131,7 +131,7 @@ class App extends React.Component {
                 this.state.movieError ? (
                   <Alert id="movieError" variant="danger">{this.state.movieError}</Alert>
                 )
-                  : <Movie movieData={this.state.movies} />
+                  : <MovieList movieData={this.state.movies} />
               }
             </div>
           ) : (<div>Please enter a valid city name</div>)

@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Luke Rogers
-**Version**: 2.0.0
+**Version**: 2.0.1
 
 ## Overview
 
@@ -24,6 +24,7 @@ Techonologies: React, JavaScript, CSS, Bootstrap, Axios.
 7/25/2023 [Version 1.0.5] - Created Error feature
 8/3/2023 [Version 1.1.0] - Connected backend weather data server to front end
 8/10/2023 [Version 2.0.0] - Connected backend movie data server to front end, created Movie component, and added CSS
+8/14/2023 [Version 2.0.1] - Changed Title and added component
 
 ## Credit and Collaborations
 
