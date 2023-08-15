@@ -16,10 +16,14 @@ class Movie extends React.Component {
                   <Carousel id="movieCarousel">
                     {this.props.movieData.map((movie, index) => (
                       <Carousel.Item id="carouselItem" key={index}>
-                        <img 
-                          className="d-block w-100"
-                          src = {`https://image.tmdb.org/t/p/original/${movie.image_url}`}
-                          alt={movie.title} />
+                        { movie.image_url
+                          ?
+                          <img 
+                            className="d-block w-100"
+                            src = {`https://image.tmdb.org/t/p/original/${movie.image_url}`}
+                            alt={movie.title} />
+                          : ''
+                        }
                         <h5>{movie.title}</h5>
                         <p>Overview: {movie.overview}</p>
                         <p>Release Date: {movie.released_on}</p>
