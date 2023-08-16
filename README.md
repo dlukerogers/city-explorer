@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Luke Rogers
-**Version**: 2.0.1
+**Version**: 2.1.0
 
 ## Overview
 
@@ -96,8 +96,18 @@ Name of feature: Movies
 
 Estimate of time needed to complete: 1 hour
 
-Start time: 3:30pm
+Start time: 3:30 pm
 
 Finish time: 5:44 pm
 
 Actual time needed to complete: 2 hours 14 minutes
+
+Name of feature: Refactor
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 3:05 pm
+
+Finish time: 3:25 pm
+
+Actual time needed to complete: 20 minutes

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from 'react-bootstrap/Image';
+import './Map.css'
 
 class Map extends React.Component {
 
