@@ -37,7 +37,6 @@ class App extends React.Component {
       let cityData = await axios.get(url);
       let lat = cityData.data[0].lat;
       let lon = cityData.data[0].lon;
-      console.log(lat, lon);
       let cityDisplayName = cityData.data[0].display_name;
       this.setState({
         lat: lat,
@@ -51,7 +50,6 @@ class App extends React.Component {
       }
       )
       
-      console.log(cityData);
       } catch(error) {
         console.log('error: ', error);
         console.log('error.message: ', error.message)
@@ -79,7 +77,6 @@ class App extends React.Component {
       try {
         let movies = await axios.get(movieData);
         this.setState({movies: movies.data});
-        console.log(movies);
       } catch (error) {
         console.log (`There is an error finding the movies for the searched city: ${error.message}`);
         this.setState({movieError: error.response.data});
