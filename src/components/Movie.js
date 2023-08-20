@@ -14,7 +14,7 @@ class Movie extends React.Component {
               : ( 
                 <div>
                   <Carousel id="movieCarousel">
-                    {this.props.movieData.map((movie, index) => (
+                    {this.props.movieData.length && this.props.movieData.map((movie, index) => (
                       <Carousel.Item id="carouselItem" key={index}>
                         { movie.image_url
                           ?
