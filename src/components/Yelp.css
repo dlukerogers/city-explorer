@@ -1,0 +1,36 @@
+#yelpCarousel {
+  margin: 2rem;
+  background-color: grey;
+  padding-bottom: 2rem;
+}
+
+#noDataP {
+  color: red;
+}
+
+h3 {
+  color: yellow;
+  margin-top: 5rem;
+}
+
+img {
+  height: 50rem;
+  object-fit: contain;
+  background-color: darkgray;
+}
+
+h5 {
+  color: black;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+p {
+  color: black;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+a {
+  color: yellow;
+}
