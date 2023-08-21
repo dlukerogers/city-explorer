@@ -6,6 +6,7 @@ import Error from './components/Error'
 import CityForm from './components/CityForm';
 import Weather from './components/Weather';
 import MovieList from "./components/MovieList";
+import YelpList from "./components/YelpList";
 import Alert from 'react-bootstrap/Alert'
 import './App.css'
 
@@ -25,6 +26,8 @@ class App extends React.Component {
       weatherError: '',
       movies: [],
       movieError: '',
+      yelp: [],
+      yelpError: '',
     }
   }
 
@@ -47,6 +50,7 @@ class App extends React.Component {
       () => {
         this.displayWeather(this.state.lat, this.state.lon);
         this.displayMovies(this.state.cityDisplayName);
+        this.displayYelp(this.state.lat, this.state.lon);
       }
       )
       
@@ -80,6 +84,17 @@ class App extends React.Component {
       } catch (error) {
         console.log (`There is an error finding the movies for the searched city: ${error.message}`);
         this.setState({movieError: error.response.data});
+      }
+    }
+
+    displayYelp = async (lat, lon) => {
+      let yelpData = `${process.env.REACT_APP_SERVER_URL}/yelp?lat=${lat}&lon=${lon}`;
+      try {
+        let yelp = await axios.get(yelpData);
+        this.setState({yelp: yelp.data});
+      } catch (error) {
+        console.log (`There is an error finding restaurants for the searched city: ${error.message}`);
+        this.setState({yelpError: error.response.data});
       }
     }
   
@@ -129,6 +144,12 @@ class App extends React.Component {
                   <Alert id="movieError" variant="danger">{this.state.movieError}</Alert>
                 )
                   : <MovieList movieData={this.state.movies} />
+              }
+              {
+                this.state.yelpError ? (
+                  <Alert id="yelpError" variant="danger">{this.state.yelpError}</Alert>
+                )
+                  : <YelpList yelpData={this.state.yelp} />
               }
             </div>
           ) : (<div>Please enter a valid city name</div>)
